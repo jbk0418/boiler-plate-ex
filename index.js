@@ -5,6 +5,8 @@ const port = 5000
 const { User } = require("./models/User"); 
 const bodyParser = require('body-parser')
 
+const config = require('./config/key')
+
 //application x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -16,7 +18,7 @@ app.get('/', (req, res) => {        //루트 디렉터리에 hello world 출력
 })
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://boilerplate:12345@boilerplate.5o8pl.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI , {
     useNewUrlParser:true
     // , useUnifiedTopologe: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('Mongodb connected ...'))
