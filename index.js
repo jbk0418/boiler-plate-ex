@@ -30,7 +30,7 @@ mongoose.connect(config.mongoURI , {
 app.post('/register', (req,res) => {
   //회원가입시 필요한 정보들
   // => DB에 삽입
-
+//register route
   const user = new User(req.body)
   user.save((err,userInfo)=>{
     if(err) return res.json({success: false, err})
@@ -38,6 +38,39 @@ app.post('/register', (req,res) => {
       success: true
     })
   })
+})
+
+
+app.post('/login', (res, req)=>{
+  //요청된 이메일이 DB에 있는지 찾기
+   User.findOne({ email: req.body.email }, (err, user) =>{
+     if(!user) {
+       return res.json({
+         loginSuccess: false,
+         message: "입력한 이메일을 찾을 수 없습니다."
+       })
+     }
+  // 있으면 비밀번호 일치 확인
+     user.comparePassword( req.body.password , (err, isMatch) =>{
+      if(!isMatch)
+        return res.json({
+          loginSuccess: false,
+          message: "비밀번호가 틀렸습니다."
+        })
+
+  //비밀번호 일치 -> 토큰 생성
+        user.generateToken((err, user) =>{
+          
+        })
+
+
+     } )
+
+
+
+   })
+
+
 })
 
 app.listen(port, () => {
