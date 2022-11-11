@@ -21,6 +21,12 @@ app.get('/', (req, res) => {        //루트 디렉터리에 hello world 출력
   res.send('Hello World!')
 })
 
+
+app.get('/api/hello', (req,res)=>{
+  res.send("hi~~~")
+})
+
+
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI , {
     useNewUrlParser:true
