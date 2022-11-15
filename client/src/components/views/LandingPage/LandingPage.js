@@ -10,8 +10,14 @@ function LandingPage() {
     .then(Response=> {console.log(Response)})
   },[]);
 
-  return (
-    <div>landingPage</div>
+  return ( 
+    <div style={{
+      display: 'flex', justifyContent: 'center', alignItems:'center',
+      width: '100%', height: '100vh'
+    }}>
+      <h2>시작 페이지</h2>
+    
+    </div>
   )
 }
 
