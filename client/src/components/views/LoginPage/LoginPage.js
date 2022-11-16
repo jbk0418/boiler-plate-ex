@@ -31,7 +31,7 @@ function LoginPage(props) {
       dispatch(loginUser(body))
         .then(response => {
           if(response.payload.loginSuccess){
-            navigate(-1);
+            navigate('/');
           }
           else{
             alert('Error"')
