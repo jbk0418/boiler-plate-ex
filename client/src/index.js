@@ -10,6 +10,7 @@ import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './_reducers'; 
 
+
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +23,7 @@ root.render(
           window.__REDUX_DEVTOOLS_EXTENSION__()
         )}
     >
-     <App />
+      <App />
     </Provider>
   </React.StrictMode>
 );

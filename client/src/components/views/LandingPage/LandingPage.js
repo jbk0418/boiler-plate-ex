@@ -1,7 +1,27 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import Auth from "../../../hoc/auth"
 
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return (
+      <Component
+        {...props}
+        router={{ location, navigate, params }}
+      />
+    );
+  }
+
+  return ComponentWithRouterProp;
+}
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -37,4 +57,4 @@ function LandingPage() {
   )
 }
 
-export default LandingPage
+export default Auth(withRouter(LandingPage),null)
