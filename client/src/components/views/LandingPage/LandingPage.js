@@ -56,5 +56,6 @@ function LandingPage() {
     </div>
   )
 }
-
+// export default Auth(LandingPage,null)
 export default Auth(withRouter(LandingPage),null)
+

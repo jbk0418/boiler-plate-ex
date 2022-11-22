@@ -92,4 +92,6 @@ function LoginPage(props) {
   )
 }
 
+// export default Auth(LoginPage ,false) 
+
 export default Auth(withRouter(LoginPage),false) 

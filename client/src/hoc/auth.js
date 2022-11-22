@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 //https://velog.io/@nemo/router-error-v6-hoc 참고해서 라우팅 해결
 
 export default function (SpecificComponent, option, adminRoute = null){
-
+  
+    
     /**
      * option별 기능
      * 
@@ -18,11 +19,11 @@ export default function (SpecificComponent, option, adminRoute = null){
      * adminRoute
      * true => 어드민만 출입가능
      */
-
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+    
 
     function AuthenticationCheck(props){
+        const navigate = useNavigate();
+        const dispatch = useDispatch();
         useEffect(() => {
             
             dispatch(auth()).then(response => {

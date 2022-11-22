@@ -22,7 +22,6 @@ function App() {
   return (
     <Router>
       <div>
-        
 
         {/*
           A <Switch> looks through all its children <Route>
